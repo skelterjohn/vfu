@@ -20,17 +20,17 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/skelterjohn/vendor/vend"
+	"github.com/skelterjohn/vfu/vend"
 )
 
 func usage() {
-	fmt.Fprintf(os.Stderr, "Usage: vendor [-d DIR] -s [-a PATH=REPO]* CONFIG  # save\n")
-	fmt.Fprintf(os.Stderr, "       vendor [-d DIR] -r CONFIG                  # restore\n")
+	fmt.Fprintf(os.Stderr, "Usage: vfu [-d DIR] -s [-a PATH=REPO]* CONFIG  # save\n")
+	fmt.Fprintf(os.Stderr, "       vfu [-d DIR] -r CONFIG                  # restore\n")
 	os.Exit(1)
 }
 
 func main() {
-	fs := flag.NewFlagSet("vendor", flag.ExitOnError)
+	fs := flag.NewFlagSet("vfu", flag.ExitOnError)
 	dir := fs.String("d", ".", "directory to vendor into")
 	save := fs.Bool("s", false, "save the repos and revisions")
 	restore := fs.Bool("r", false, "restore the repos and revisions")
@@ -93,7 +93,7 @@ func main() {
 	fs.Parse(args)
 
 	if *version {
-		fmt.Println("vendor build 3")
+		fmt.Println("vfu build 4")
 		os.Exit(0)
 	}
 
